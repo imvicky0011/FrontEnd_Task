@@ -1,14 +1,15 @@
-import { useReducer } from "react"
 import { BiBrush } from 'react-icons/bi'
-import Success from "./success"
-import Bug from "./bug"
 import { useQuery, useMutation, useQueryClient } from "react-query"
 import { getUser, getUsers, updateUser } from "../lib/helper"
 
 export default function UpdateUserForm({ formId, formData, setFormData }){
 
     const queryClient = useQueryClient()
-   const {isLoading, isError, data, error} = useQuery(['users', formId], () => getUser(formId))
+
+    const {isLoading, isError, data, error} = useQuery(['users', formId], () => getUser(formId))
+    
+    console.log("Coming from the updateUserForm page: ")
+    console.log(data)
     const UpdateMutation = useMutation((newData) => updateUser(formId, newData), {
         onSuccess : async (data) => {
             // queryClient.setQueryData('users', (old) => [data])

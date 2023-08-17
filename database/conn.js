@@ -2,7 +2,6 @@ import mongoose from 'mongoose';
 
 const connectMongo = async () => {
     try{
-        console.log(process.allowedNodeEnvironmentFlags.MONGO_URI)
 
         console.log("connection file : " + process.env.MONGO_URI)
         
